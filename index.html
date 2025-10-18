@@ -1,10 +1,197 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="fr">
 <head>
-  
-</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Prénom Nom — Mathématicien·ne</title>
+  <meta name="description" content="Page personnelle de Prénom Nom — recherches en mathématiques, publications, enseignement, contact">
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Math rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    :root{
+      --bg: #fbfbfb;
+      --card: #ffffff;
+      --text: #111214;
+      --muted: #5b6166;
+      --accent: #0b6e99;
+      --accent-2: #8a2be2;
+      --glass: rgba(11,110,153,0.06);
+      --radius: 12px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,var(--bg),#f3f6f8 60%);
+      color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.5; padding:48px; display:flex; justify-content:center;
+    }
+
+    .wrap{width:min(1100px,96%);}
+    header{
+      display:flex; gap:24px; align-items:center; margin-bottom:28px;
+    }
+    .avatar{
+      width:84px; height:84px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-family:'IBM Plex Serif'; font-size:28px;
+      box-shadow:0 6px 18px rgba(16,24,40,0.06);
+    }
+
+    .meta h1{margin:0; font-family:'IBM Plex Serif'; font-weight:600; font-size:22px}
+    .meta p.role{margin:6px 0 0; color:var(--muted);}
+
+    nav{margin-left:auto;}
+    nav a{color:var(--muted); text-decoration:none; margin-left:18px; font-weight:600}
+    nav a:focus, nav a:hover{color:var(--text); outline:none}
+
+    main{display:grid; grid-template-columns: 2fr 1fr; gap:22px; align-items:start}
+
+    /* Card */
+    .card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:0 6px 20px rgba(16,24,40,0.04)}
+
+    /* Left column */
+    .about p{color:var(--muted)}
+    .section-title{font-family:'IBM Plex Serif'; margin:0 0 10px; font-size:18px}
+    .research-highlights{display:grid; gap:12px}
+
+    .paper{padding:12px; border-radius:10px; background:linear-gradient(180deg, rgba(10,20,30,0.01), rgba(10,20,30,0.02)); border:1px solid rgba(16,24,40,0.03)}
+    .paper .title{font-weight:600}
+    .paper .meta{color:var(--muted); font-size:13px}
+
+    .math{font-family: 'IBM Plex Serif', serif; background:var(--glass); padding:10px; border-radius:8px}
+
+    /* Right column */
+    .side-list{display:flex; flex-direction:column; gap:12px}
+    .kv{display:flex; justify-content:space-between; gap:8px}
+    .tag{font-size:13px; padding:6px 10px; border-radius:999px; background:rgba(139,195,235,0.12); color:var(--accent); font-weight:600}
+
+    footer{margin-top:26px; color:var(--muted); font-size:13px; text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      main{grid-template-columns:1fr}
+      header{flex-wrap:wrap}
+      nav{width:100%; order:3}
+    }
+
+    /* Subtle interactive flourish */
+    a.link{color:var(--accent); text-decoration:none; position:relative}
+    a.link::after{content:''; position:absolute; left:0; bottom:-3px; width:0; height:2px; background:var(--accent); transition:width .25s}
+    a.link:hover::after{width:100%}
+
+    /* print */
+    @media print{body{padding:0} nav, .avatar{display:none} .wrap{width:100%}}
+  </style>
+</head>
 <body>
-  
+  <div class="wrap">
+    <header>
+      <div class="avatar">PN</div>
+      <div class="meta">
+        <h1>Prénom Nom</h1>
+        <p class="role">Maître de conférences / Chercheur en mathématiques — algèbre & géométrie</p>
+      </div>
+
+      <nav aria-label="navigation principale">
+        <a href="#recherche">Recherche</a>
+        <a href="#publications">Publications</a>
+        <a href="#enseignement">Enseignement</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card about">
+        <h2 class="section-title" id="recherche">Recherche — résumé</h2>
+        <p>Mon travail porte sur l'interaction entre la théorie des représentations et la géométrie algébrique. J'étudie notamment les problèmes de dégénérescence des modules et les équations modulaires associées aux catégories dérivées.</p>
+
+        <div style="height:10px"></div>
+
+        <h3 style="margin:0 0 8px; font-family:'IBM Plex Serif'">Point clé</h3>
+        <div class="math">Exemple de formule courte : \(H^i(X,\mathcal{O}_X)=0\) pour \(i>0\) dans ce cadre.</div>
+
+        <div style="height:16px"></div>
+
+        <h3 class="section-title">Highlights récents</h3>
+        <div class="research-highlights">
+          <article class="paper">
+            <div class="title">Titre de l'article (2025)</div>
+            <div class="meta">Journal, co-auteurs — résumé en une phrase. <a class="link" href="#publications">Lire</a></div>
+          </article>
+
+          <article class="paper">
+            <div class="title">Prépublication: sur les foncteurs de recollement</div>
+            <div class="meta">ArXiv, 2024 — construction d'un contre-exemple à une conjecture usuelle.</div>
+          </article>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <h3 class="section-title" id="publications">Sélection de publications</h3>
+        <ol style="margin:8px 0 0 18px; color:var(--muted)">
+          <li><strong>Prénom Nom</strong>, Co-auteur — « Titre A », Journal A, 2025.</li>
+          <li><strong>Prénom Nom</strong>, — « Titre B », Journal B, 2023.</li>
+          <li>Prépublication — <a class="link" href="#">arXiv:XXXX.YYYY</a></li>
+        </ol>
+
+        <div style="height:18px"></div>
+
+        <h3 class="section-title" id="enseignement">Enseignement</h3>
+        <p class="meta">Cours donnés: Algèbre commutative (Master), Géométrie algébrique (Master/DEA), Séminaire de lecture.</p>
+
+        <p style="margin-top:12px; color:var(--muted)">Matériel de cours et notes disponibles sur demande — voir contact.</p>
+
+      </section>
+
+      <aside class="card">
+        <div class="side-list">
+          <div>
+            <h4 style="margin:0 0 8px" class="section-title">Contact</h4>
+            <div class="kv"><span class="meta">Institut / Université</span><span class="meta">Ville, Pays</span></div>
+            <div class="kv"><span class="meta">Email</span><a href="mailto:prenom.nom@example.com" class="link">prenom.nom@example.com</a></div>
+            <div class="kv"><span class="meta">Téléphone</span><span class="meta">+33 1 23 45 67 89</span></div>
+          </div>
+
+          <div>
+            <h4 style="margin:0 0 8px" class="section-title">CV / Liens</h4>
+            <div style="display:flex; flex-direction:column; gap:8px">
+              <a class="link" href="#">CV (PDF)</a>
+              <a class="link" href="#">Page ArXiv</a>
+              <a class="link" href="#">GitHub (code pour figures)</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="margin:0 0 8px" class="section-title">Mots-clés</h4>
+            <div style="display:flex; gap:8px; flex-wrap:wrap"><span class="tag">Algèbre</span><span class="tag">Géométrie</span><span class="tag">Catégories</span><span class="tag">Représentations</span></div>
+          </div>
+
+          <div>
+            <h4 style="margin:0 0 8px" class="section-title">Séminaire</h4>
+            <p class="meta">Prochain séminaire: 12 Nov. 2025 — « Auto-équivalences et stabilité ».</p>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <p>© Prénom Nom — dernière mise à jour : 19 octobre 2025</p>
+    </footer>
+  </div>
+
+  <!-- Small script to enhance keyboard accessibility and add print-friendly focus -->
+  <script>
+    // focus outline for keyboard users
+    (function(){
+      function handleFirstTab(e){ if(e.key === 'Tab'){ document.body.classList.add('user-is-tabbing'); window.removeEventListener('keydown', handleFirstTab); } }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
 </body>
+</html>
